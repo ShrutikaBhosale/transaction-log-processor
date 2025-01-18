@@ -29,17 +29,13 @@ const calculateTotalAmount = ( transactions) => {
   return accounts;
 } 
 
-const netBalance = (transactions) => {
-
-  const accounts = fetchAccounts(transactions);
-  const acc = fetchAccounts(transactions);
-  
+export const netBalance = (transactions) => {
   const credits = fetchTransactionData(transactions,'credit')
   const debits = fetchTransactionData(transactions, 'debit')
   
  const creditedAmount = calculateTotalAmount(credits)
   const debitedAmount = calculateTotalAmount(debits)
-  console.log(mergeWith(creditedAmount,debitedAmount,sub))
+  return mergeWith(creditedAmount,debitedAmount,sub)
 }
 const main = () => {
   const transactions = data.transactions;
